@@ -1,0 +1,13 @@
+{
+  "name": "Jack King's Classic 2026",
+  "short_name": "JKC 2026",
+  "description": "Official program — competitor lineup and class running order.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0e0e10",
+  "theme_color": "#0e0e10",
+  "icons": [
+    { "src": "assets/logos/web/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/logos/web/jkc-crest.png", "sizes": "480x418", "type": "image/png" }
+  ]
+}

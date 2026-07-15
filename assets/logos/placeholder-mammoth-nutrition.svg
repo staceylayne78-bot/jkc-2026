@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" role="img" aria-label="Mammoth Nutrition">
+  <!-- Stand-in for the Mammoth Nutrition logo. Drop mammoth-nutrition.png into assets/logos/ to replace. -->
+  <rect width="260" height="200" fill="#0a0a0a" rx="8"/>
+  <circle cx="130" cy="82" r="52" fill="none" stroke="#c9a24b" stroke-width="4"/>
+  <path d="M86 52 h88 l-44 76 Z" fill="none" stroke="#cfcfcf" stroke-width="5" stroke-linejoin="round"/>
+  <!-- mammoth head hint: trunk + tusks -->
+  <path d="M130 62 q-14 8 -12 26 q2 14 12 20 q10-6 12-20 q2-18 -12-26" fill="#c9a24b"/>
+  <path d="M112 96 q-10 14 4 20 M148 96 q10 14 -4 20" stroke="#e8e8e8" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <text x="130" y="162" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="28" fill="#d9d9d9" letter-spacing="2">MAMMOTH</text>
+  <text x="130" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="15" fill="#c9a24b" letter-spacing="6">NUTRITION</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-label="Greg's High Protein Muffins">
+  <!-- Recreation of the badge from the printed program: red block text on white with a handwritten tag -->
+  <rect width="300" height="220" rx="14" fill="#f7f3ec"/>
+  <rect x="8" y="8" width="284" height="204" rx="10" fill="none" stroke="#c8102e" stroke-width="3"/>
+  <text x="150" y="62" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="34" fill="#c8102e" letter-spacing="1">GREG'S</text>
+  <text x="150" y="104" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="30" fill="#c8102e" letter-spacing="1">HIGH PROTEIN</text>
+  <text x="150" y="146" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="34" fill="#c8102e" letter-spacing="1">MUFFINS</text>
+  <text x="150" y="186" text-anchor="middle" font-family="'Bradley Hand', 'Comic Sans MS', cursive" font-size="22" fill="#3a3a3a" transform="rotate(-3 150 186)">Great Healthy Snack!</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img" aria-label="Jack King's Gym — We Judge">
+  <!-- Stand-in for the Jack King's Gym stacked logo. Drop jack-kings-gym.png into assets/logos/ to replace. -->
+  <rect width="300" height="200" fill="#ffffff" rx="8"/>
+  <text x="150" y="58" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="44" fill="#111" letter-spacing="1">JACK</text>
+  <text x="150" y="106" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="44" fill="#111" letter-spacing="1">KING'S</text>
+  <text x="150" y="124" text-anchor="middle" font-family="'Bradley Hand', 'Comic Sans MS', cursive" font-size="16" fill="#111">We Judge</text>
+  <text x="150" y="178" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="52" fill="#c8102e" letter-spacing="2">GYM</text>
+</svg>
