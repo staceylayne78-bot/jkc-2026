@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JKC 2026 Poster</title>
+<style>
+  @font-face {
+    font-family: "Cinzel";
+    font-weight: 400 900;
+    src: url("../assets/fonts/cinzel-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Oswald";
+    font-weight: 200 700;
+    src: url("../assets/fonts/oswald-latin.woff2") format("woff2");
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 8.5in; height: 11in; }
+  body {
+    font-family: "Oswald", system-ui, sans-serif;
+    color: #141414;
+    background: #f7f3ec;
+    padding: 0.55in 0.6in 0.45in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .rule {
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, transparent, #c9a24b 15%, #c9a24b 85%, transparent);
+    margin: 0.12in 0;
+  }
+  .crest { width: 1.45in; height: auto; }
+  h1 {
+    font-family: "Cinzel", Georgia, serif;
+    font-weight: 800;
+    font-size: 30pt;
+    line-height: 1.05;
+    letter-spacing: 1px;
+    margin-top: 0.08in;
+  }
+  h1 .top { display: block; font-size: 17pt; color: #b8232f; letter-spacing: 4px; }
+  .date {
+    font-size: 15pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    margin-top: 0.1in;
+  }
+  .venue { font-size: 12pt; letter-spacing: 1px; margin-top: 0.04in; color: #3a3a3a; }
+  .times { font-size: 11pt; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 0.06in; color: #3a3a3a; }
+  .times b { color: #141414; }
+
+  .qrbox {
+    margin-top: 0.22in;
+    border: 6px solid #c9a24b;
+    border-radius: 18px;
+    padding: 0.22in 0.5in 0.26in;
+    background: #ffffff;
+  }
+  .qrbox .scanme {
+    font-size: 19pt; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 0.1in;
+  }
+  .qrbox img { width: 3.5in; height: 3.5in; display: block; margin: 0 auto; }
+  .qrbox .url {
+    font-size: 13pt; font-weight: 600; letter-spacing: 1px; margin-top: 0.1in; color: #b8232f;
+  }
+
+  .pitch {
+    margin-top: 0.2in;
+    font-size: 13.5pt;
+    line-height: 1.5;
+    color: #141414;
+    max-width: 6.4in;
+  }
+  .pitch b { color: #b8232f; }
+  .bullets {
+    margin-top: 0.08in;
+    font-size: 12pt;
+    letter-spacing: .5px;
+    color: #3a3a3a;
+  }
+  .bullets span { white-space: nowrap; }
+  .dot { color: #c9a24b; padding: 0 0.09in; }
+
+  .foot {
+    margin-top: auto;
+    font-size: 10.5pt;
+    letter-spacing: 1px;
+    color: #3a3a3a;
+    text-transform: uppercase;
+  }
+  .foot b { color: #141414; }
+</style>
+</head>
+<body>
+  <img class="crest" src="../assets/logos/web/jkc-crest.png" alt="">
+  <h1>
+    <span class="top">2026 OCB</span>
+    Jack King's Classic
+  </h1>
+  <div class="rule"></div>
+  <div class="date">Saturday, July 18, 2026</div>
+  <div class="venue">Winston-Salem State Anderson Center &nbsp;·&nbsp; 1545 Reynolds Park Rd, Winston-Salem, NC</div>
+  <div class="times"><b>Doors 9:00 AM</b> &nbsp;·&nbsp; <b>Show 10:00 AM</b> &nbsp;·&nbsp; <b>Women's Show 1:00 PM</b></div>
+
+  <div class="qrbox">
+    <div class="scanme">Scan for the Official Program</div>
+    <img src="../qr/jkc-qr.svg" alt="QR code">
+    <div class="url">jackkingsclassic.netlify.app</div>
+  </div>
+
+  <div class="pitch">
+    <b>Who is number 27? When is my class on?</b><br>
+    The full digital program — free, no app needed. Works even when the venue wifi doesn't.
+  </div>
+  <div class="bullets">
+    <span>Look up any competitor by number or name</span><span class="dot">◆</span><span>Full running order, all 39 classes</span><span class="dot">◆</span><span>Sponsors &amp; event info</span>
+  </div>
+
+  <div class="foot">
+    Hosted by <b>Jack King's Gym</b> &nbsp;·&nbsp; Title Sponsor <b>King's Advantage</b> &nbsp;·&nbsp; Tag your photos <b>@ocbjackkingsclassic</b>
+  </div>
+</body>
+</html>
