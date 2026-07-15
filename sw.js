@@ -1,7 +1,7 @@
 // Service worker: the shell (HTML + competitor data) is network-first so day-of corrections
 // reach phones immediately; everything else is cache-first so the program keeps working on
 // venue wifi / backstage dead zones. Bump VERSION on every deploy.
-const VERSION = "jkc2026-v5";
+const VERSION = "jkc2026-v6";
 const PRECACHE = [
   "./",
   "index.html",
