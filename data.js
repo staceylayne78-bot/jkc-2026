@@ -133,6 +133,11 @@ const DIVISION_INFO = {
   },
 };
 
+// Day-of results. Key = exact class name, value = competitor numbers in placement
+// order (1st, 2nd, 3rd, ...). Filled in live during the show; empty until then.
+const RESULTS = {
+};
+
 const EVENT = {
   title: "OCB Jack King's Classic 2026",
   date: "Saturday, July 18, 2026",

@@ -196,6 +196,12 @@
     color: var(--accent-ink); background: var(--accent);
     min-width: 48px; text-align: center; border-radius: 8px; padding: 3px 6px;
   }
+  .place {
+    margin-left: auto;
+    font-family: var(--font-sub); font-size: 14px; font-weight: 600;
+    letter-spacing: .5px; color: var(--ink-dim); white-space: nowrap;
+  }
+  .place.p1 { color: var(--accent); }
 
   /* Competitor result cards */
   .comp {
@@ -343,6 +349,15 @@
   function pqBadge(name) {
     return / PQ$/.test(name) ? '<span class="badge-pq">PQ</span>' : "";
   }
+
+  const PLACE_LABELS = ["🏆 1st", "🥈 2nd", "🥉 3rd", "4th", "5th"];
+  function placeBadge(className, n) {
+    const order = RESULTS[className];
+    if (!order) return "";
+    const i = order.indexOf(n);
+    if (i < 0 || i >= PLACE_LABELS.length) return "";
+    return `<span class="place${i === 0 ? " p1" : ""}">${PLACE_LABELS[i]}</span>`;
+  }
   function displayName(name) {
     return esc(name.replace(/ PQ$/, ""));
   }
@@ -366,7 +381,7 @@
       const cards = d.items.map(({ cls, ord }) => {
         const rows = cls.nums.map(n => {
           const c = byNum.get(n);
-          return `<li><button onclick="openCompetitor(${n})"><span class="num">${n}</span> ${esc(c.name)}</button></li>`;
+          return `<li><button onclick="openCompetitor(${n})"><span class="num">${n}</span> ${esc(c.name)} ${placeBadge(cls.name, n)}</button></li>`;
         }).join("");
         return `
           <div class="classcard">
@@ -406,7 +421,7 @@
   const q = document.getElementById("q");
   function compCard(c) {
     const rows = classesFor(c.n).map(k => `
-      <li><span class="ord">${k.ord} / ${CLASSES.length}</span> ${displayName(k.name)} ${pqBadge(k.name)}</li>`).join("");
+      <li><span class="ord">${k.ord} / ${CLASSES.length}</span> ${displayName(k.name)} ${pqBadge(k.name)} ${placeBadge(k.name, c.n)}</li>`).join("");
     return `
       <div class="comp">
         <div class="top">
