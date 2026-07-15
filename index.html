@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jack King's Classic 2026 — Official Program</title>
-<meta name="description" content="Jack King's Classic 2026 — competitor lineup, class running order, and event guide. Saturday, July 18, 2026.">
+<title>OCB Jack King's Classic 2026 — Official Program</title>
+<meta name="description" content="OCB Jack King's Classic 2026 — competitor lineup, class running order, and event guide. Saturday, July 18, 2026, Winston-Salem State Anderson Center.">
 <meta name="theme-color" content="#0e0e10">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/logos/web/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/logos/web/apple-touch-icon.png">
@@ -72,6 +72,18 @@
     color: var(--ink-dim);
     margin-top: 4px;
   }
+  header.site .venue {
+    display: inline-block;
+    font-family: var(--font-sub);
+    font-size: 14px;
+    letter-spacing: .5px;
+    color: var(--accent);
+    margin-top: 6px;
+    padding: 4px 6px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  header.site .venue .addr { color: var(--ink-dim); text-decoration: none; }
   .times {
     display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
     font-family: var(--font-sub); font-size: 14px; letter-spacing: .5px;
@@ -108,6 +120,39 @@
     padding: 22px 4px 8px;
     letter-spacing: .5px;
   }
+
+  /* Division accordions */
+  details.division { margin-top: 12px; }
+  details.division > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 10px;
+    min-height: var(--tap);
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 10px 14px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  details.division > summary::-webkit-details-marker { display: none; }
+  details.division > summary h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--accent);
+    letter-spacing: .5px;
+    flex: 1;
+  }
+  details.division > summary .cnt {
+    font-family: var(--font-sub); font-size: 13px; color: var(--ink-dim);
+    letter-spacing: 1px; white-space: nowrap;
+  }
+  details.division > summary .chev {
+    color: var(--accent); font-size: 14px;
+    transition: transform .15s ease;
+  }
+  details.division[open] > summary { border-radius: 12px 12px 0 0; }
+  details.division[open] > summary .chev { transform: rotate(180deg); }
+  details.division .divbody { padding-top: 10px; }
   .classcard {
     background: var(--bg-card);
     border: 1px solid var(--rule);
@@ -239,8 +284,9 @@
 
 <header class="site">
   <img class="crest" src="assets/logos/web/jkc-crest.png" alt="Jack King's Classic crest">
-  <h1>Jack King's Classic <span class="year">2026</span></h1>
+  <h1><span class="ocb">OCB</span> Jack King's Classic <span class="year">2026</span></h1>
   <div class="meta" id="eventMeta"></div>
+  <a class="venue" id="eventVenue" target="_blank" rel="noopener"></a>
   <div class="times" id="eventTimes"></div>
 </header>
 
@@ -303,25 +349,49 @@
     return cats.find(c => className.startsWith(c)) || "Other";
   }
   function renderLineup() {
-    let html = "", lastCat = "";
+    // Group classes by division, preserving running order and global class numbers.
+    const divisions = [];
     CLASSES.forEach((cls, i) => {
       const cat = categoryOf(cls.name);
-      if (cat !== lastCat) { html += `<h2 class="cat">${esc(cat)}</h2>`; lastCat = cat; }
-      const rows = cls.nums.map(n => {
-        const c = byNum.get(n);
-        return `<li><button onclick="openCompetitor(${n})"><span class="num">${n}</span> ${esc(c.name)}</button></li>`;
-      }).join("");
-      html += `
-        <div class="classcard">
-          <div class="classhead">
-            <h3>${displayName(cls.name)} ${pqBadge(cls.name)}</h3>
-            <span class="ord">${i + 1} / ${CLASSES.length}</span>
-          </div>
-          <ul class="roster">${rows}</ul>
-        </div>`;
+      let d = divisions[divisions.length - 1];
+      if (!d || d.cat !== cat) { d = { cat, items: [] }; divisions.push(d); }
+      d.items.push({ cls, ord: i + 1 });
     });
+    const html = divisions.map(d => {
+      const cards = d.items.map(({ cls, ord }) => {
+        const rows = cls.nums.map(n => {
+          const c = byNum.get(n);
+          return `<li><button onclick="openCompetitor(${n})"><span class="num">${n}</span> ${esc(c.name)}</button></li>`;
+        }).join("");
+        return `
+          <div class="classcard">
+            <div class="classhead">
+              <h3>${displayName(cls.name)} ${pqBadge(cls.name)}</h3>
+              <span class="ord">${ord} / ${CLASSES.length}</span>
+            </div>
+            <ul class="roster">${rows}</ul>
+          </div>`;
+      }).join("");
+      return `
+        <details class="division">
+          <summary>
+            <h2>${esc(d.cat)}</h2>
+            <span class="cnt">${d.items.length} ${d.items.length === 1 ? "class" : "classes"}</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="divbody">${cards}</div>
+        </details>`;
+    }).join("");
     document.getElementById("lineup").innerHTML = html;
   }
+
+  // Print (judges/staff copies) needs every accordion open.
+  window.addEventListener("beforeprint", () => {
+    document.querySelectorAll("details.division").forEach(d => { d.dataset.wasOpen = d.open ? "1" : ""; d.open = true; });
+  });
+  window.addEventListener("afterprint", () => {
+    document.querySelectorAll("details.division").forEach(d => { d.open = d.dataset.wasOpen === "1"; });
+  });
 
   /* ----- Find ----- */
   const q = document.getElementById("q");
@@ -398,6 +468,13 @@
   function renderAbout() {
     document.getElementById("about").innerHTML = `
       <div class="bio">
+        <h3>Your Host</h3>
+        <img class="jack" src="assets/about/Jerry-Martin.jpg" alt="Jerry Martin posing on stage" loading="lazy">
+        <p>This show is hosted by <strong>Jerry Martin</strong>, bodybuilder and owner of Jack King's Gym.</p>
+        <p><strong>Thank you</strong> to our judges, expeditors, and volunteers from the Jack King's Gym family.</p>
+        <img class="jack" style="width:100%;max-width:none" src="assets/about/jack-kings-family.jpg" alt="The Jack King's Gym family" loading="lazy">
+      </div>
+      <div class="bio">
         <h3>Who was Jack King?</h3>
         <img class="jack" src="assets/about/Jack-King.jpg" alt="Jack King posing in his gym" loading="lazy">
         <p>Jack King was an Olympic lifter turned bodybuilder in his early 40s. He quickly became a pioneer
@@ -405,15 +482,14 @@
         shows and winning first-place titles in 29 of them. He opened Jack King's Gym in Winston-Salem
         in 1976. Although he died in 2015, the gym continues to be a brotherhood and sisterhood for those
         who love fitness.</p>
-      </div>
-      <div class="thanks">
-        <p><strong>Thank you</strong> to our judges, expeditors, and volunteers from the Jack King's Gym family.</p>
-        <p style="margin-top:8px">Hosted by <strong>Jerry Martin</strong>, owner, Jack King's Gym.</p>
       </div>`;
   }
 
   /* ----- Header ----- */
-  document.getElementById("eventMeta").textContent = `${EVENT.date}${EVENT.venue ? " · " + EVENT.venue : ""}`;
+  document.getElementById("eventMeta").textContent = EVENT.date;
+  const venueEl = document.getElementById("eventVenue");
+  venueEl.href = EVENT.mapsUrl;
+  venueEl.innerHTML = `${esc(EVENT.venue)}<br><span class="addr">${esc(EVENT.address)}</span>`;
   document.getElementById("eventTimes").innerHTML =
     [EVENT.doors, EVENT.mens, EVENT.womens].map(t => `<span>${esc(t)}</span>`).join("");
 

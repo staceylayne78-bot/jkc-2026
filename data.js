@@ -102,9 +102,11 @@ const CLASSES = [
 ];
 
 const EVENT = {
-  title: "Jack King's Classic 2026",
+  title: "OCB Jack King's Classic 2026",
   date: "Saturday, July 18, 2026",
-  venue: "Venue TBA",
+  venue: "Winston-Salem State Anderson Center",
+  address: "1545 Reynolds Park Rd, Winston-Salem, NC 27101",
+  mapsUrl: "https://maps.google.com/?q=Anderson+Center,+1545+Reynolds+Park+Rd,+Winston-Salem,+NC+27101",
   doors: "Doors 9:00 AM",
   mens: "Show starts 10:00 AM",
   womens: "Women's show 1:00 PM",
