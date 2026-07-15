@@ -30,21 +30,22 @@ The promoter (Stacey) will send placements from the venue, e.g. "Class 12: 1st 2
 Class 12 = the 12th entry in `CLASSES` (1-indexed). If a message references a class
 by number, map it through `CLASSES` and confirm the name in the echo-back.
 
-The 39 class names, in running order (use verbatim as RESULTS keys):
+The 39 class names, in running order (use verbatim as RESULTS keys). PQ suffixes were
+removed 2026-07-15 from classes without enough athletes to qualify — this list is current:
 Men's Bodybuilding Debut · Men's Bodybuilding Novice · Men's Bodybuilding 60+ ·
-Men's Bodybuilding Open PQ · Men's Physique Debut A · Men's Physique Debut B ·
+Men's Bodybuilding Open · Men's Physique Debut A · Men's Physique Debut B ·
 Men's Physique Novice A · Men's Physique Novice B · Men's Physique Novice C ·
 Men's Physique 40+ PQ · Men's Physique 50+ · Men's Physique Open A PQ ·
 Men's Physique Open B PQ · Men's Physique Open C PQ · Men's Classic Physique Debut A ·
 Men's Classic Physique Debut B · Men's Classic Physique Novice A ·
-Men's Classic Physique Novice B · Men's Classic Physique 40+ PQ ·
+Men's Classic Physique Novice B · Men's Classic Physique 40+ ·
 Men's Classic Physique Open A PQ · Men's Classic Physique Open B PQ ·
-Women's Physique Debut · Women's Physique Novice · Women's Physique Open PQ ·
-Women's Figure Debut · Women's Figure Novice · Women's Figure 40+ PQ ·
+Women's Physique Debut · Women's Physique Novice · Women's Physique Open ·
+Women's Figure Debut · Women's Figure Novice · Women's Figure 40+ ·
 Women's Figure 50+ · Women's Figure 60+ · Women's Figure Open PQ ·
 Women's Bikini Debut · Women's Bikini Novice A · Women's Bikini Novice B ·
-Women's Bikini 40+ PQ · Women's Bikini Open PQ · Women's Wellness Debut ·
-Women's Wellness Novice · Women's Wellness 40+ PQ · Women's Wellness Open PQ
+Women's Bikini 40+ · Women's Bikini Open PQ · Women's Wellness Debut ·
+Women's Wellness Novice · Women's Wellness 40+ · Women's Wellness Open
 
 ## Other conventions
 
