@@ -60,10 +60,10 @@
     font-family: var(--font-display);
     font-size: 26px;
     letter-spacing: 0.5px;
-    line-height: 1.15;
+    line-height: 1.2;
     color: var(--accent);
   }
-  header.site .year { color: var(--ink); }
+  header.site .year { color: var(--ink); font-size: 20px; }
   header.site .meta {
     font-family: var(--font-sub);
     text-transform: uppercase;
@@ -153,6 +153,11 @@
   details.division[open] > summary { border-radius: 12px 12px 0 0; }
   details.division[open] > summary .chev { transform: rotate(180deg); }
   details.division .divbody { padding-top: 10px; }
+  .divdesc {
+    color: var(--ink-dim); font-size: 15px; line-height: 1.5;
+    padding: 2px 4px 12px;
+  }
+  .divdesc a { color: var(--accent); text-decoration: none; white-space: nowrap; }
   .classcard {
     background: var(--bg-card);
     border: 1px solid var(--rule);
@@ -284,7 +289,7 @@
 
 <header class="site">
   <img class="crest" src="assets/logos/web/jkc-crest.png" alt="Jack King's Classic crest">
-  <h1><span class="ocb">OCB</span> Jack King's Classic <span class="year">2026</span></h1>
+  <h1><span class="year">2026 OCB</span><br>Jack King's Classic</h1>
   <div class="meta" id="eventMeta"></div>
   <a class="venue" id="eventVenue" target="_blank" rel="noopener"></a>
   <div class="times" id="eventTimes"></div>
@@ -372,6 +377,10 @@
             <ul class="roster">${rows}</ul>
           </div>`;
       }).join("");
+      const info = DIVISION_INFO[d.cat];
+      const desc = info
+        ? `<p class="divdesc">${esc(info.desc)} <a href="${info.url}" target="_blank" rel="noopener">OCB rules ↗</a></p>`
+        : "";
       return `
         <details class="division">
           <summary>
@@ -379,7 +388,7 @@
             <span class="cnt">${d.items.length} ${d.items.length === 1 ? "class" : "classes"}</span>
             <span class="chev">▼</span>
           </summary>
-          <div class="divbody">${cards}</div>
+          <div class="divbody">${desc}${cards}</div>
         </details>`;
     }).join("");
     document.getElementById("lineup").innerHTML = html;
@@ -482,6 +491,19 @@
         shows and winning first-place titles in 29 of them. He opened Jack King's Gym in Winston-Salem
         in 1976. Although he died in 2015, the gym continues to be a brotherhood and sisterhood for those
         who love fitness.</p>
+      </div>
+      <div class="bio">
+        <h3>Sanctioned by the OCB</h3>
+        <a href="https://ocbonline.com/" target="_blank" rel="noopener">
+          <img class="jack" style="max-width:200px" src="assets/logos/web/ocb.png" alt="OCB — Organization of Competition Bodies" loading="lazy">
+        </a>
+        <p>The OCB (Organization of Competition Bodies) is the world's largest all-natural bodybuilding
+        federation. OCB competitions prioritize strict drug testing, ethical judging, and exceptional
+        event productions.</p>
+        <p>All competitors are screened before competing, and all amateur and pro winners are drug tested,
+        with lab reports provided. Combined with year-round drug testing, OCB ensures a level playing
+        field and has earned its place as the leading all-natural bodybuilding organization.</p>
+        <p><a href="https://ocbonline.com/" target="_blank" rel="noopener">ocbonline.com ↗</a></p>
       </div>`;
   }
 

@@ -101,6 +101,38 @@ const CLASSES = [
   { name: "Women's Wellness Open PQ", nums: [63, 64, 66] },
 ];
 
+// One-line "what judges look for" per division, condensed from ocbonline.com's category pages.
+const DIVISION_INFO = {
+  "Men's Bodybuilding": {
+    desc: "The most muscular, developed, and lean of the men's categories — judged on symmetry, size, and definition, with deep cuts and striations on full display.",
+    url: "https://ocbonline.com/mens-bodybuilding/",
+  },
+  "Men's Physique": {
+    desc: "A lean, V-tapered upper body presented in board shorts — wide back, small waist, etched abs. Extreme size and conditioning are intentionally avoided here.",
+    url: "https://ocbonline.com/mens-physique/",
+  },
+  "Men's Classic Physique": {
+    desc: "A nod to the classic era: balance and proportion take precedence over sheer size, with less extreme leanness than open bodybuilding.",
+    url: "https://ocbonline.com/mens-classic-physique/",
+  },
+  "Women's Physique": {
+    desc: "The most muscular of the women's categories — a feminine, balanced look with a high degree of muscularity and the leanest conditioning on the women's side.",
+    url: "https://ocbonline.com/womens-physique/",
+  },
+  "Women's Figure": {
+    desc: "Judged on symmetry, muscularity, and conditioning — an X-frame with capped shoulders, wide back, small waist, and visible muscle separation.",
+    url: "https://ocbonline.com/figure/",
+  },
+  "Women's Bikini": {
+    desc: "A healthy, toned, hourglass look with balance, shape, and proportion — lightly muscled by design, and the only category judged on a stage walk.",
+    url: "https://ocbonline.com/bikini/",
+  },
+  "Women's Wellness": {
+    desc: "The one category where upper/lower symmetry isn't the goal — a dominant, muscular lower body with full glutes and sweeping quads, paired with a lighter upper body.",
+    url: "https://ocbonline.com/womens-wellness/",
+  },
+};
+
 const EVENT = {
   title: "OCB Jack King's Classic 2026",
   date: "Saturday, July 18, 2026",
