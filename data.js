@@ -138,6 +138,12 @@ const DIVISION_INFO = {
 const RESULTS = {
 };
 
+// Overall titles, decided after class judging from the class winners. Any title
+// wording works; entries appear in the Champions card in this order.
+// Example: { title: "Men's Physique Open Overall", n: 27 }
+const OVERALLS = [
+];
+
 const EVENT = {
   title: "OCB Jack King's Classic 2026",
   date: "Saturday, July 18, 2026",

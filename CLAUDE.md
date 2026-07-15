@@ -30,6 +30,28 @@ The promoter (Stacey) will send placements from the venue, e.g. "Class 12: 1st 2
 Class 12 = the 12th entry in `CLASSES` (1-indexed). If a message references a class
 by number, map it through `CLASSES` and confirm the name in the echo-back.
 
+**Overall winners** (contested by the class winners of a division after judging; not
+classes in the running order): add to the `OVERALLS` array in `data.js` as
+`{ title: "<Division> Overall", n: <number> }`, e.g.
+`{ title: "Men's Physique Open Overall", n: 27 }`. The "<Division> Overall" title
+format matters — the app matches the division name to detect pro cards (below).
+Overalls render as a ⭐ line on the competitor's lookup card.
+
+**OCB pro cards — never entered by hand, the app derives them (👑):**
+- Single-class PQ division (e.g. "Men's Physique 40+ PQ"): the class winner from
+  RESULTS goes pro automatically.
+- Multi-class PQ division (A/B/C splits, e.g. "Men's Physique Open A/B/C PQ"): class
+  winners do NOT go pro — the pro card attaches to the division's Overall entry
+  ("Men's Physique Open Overall"). Non-PQ overalls (Debut/Novice) get ⭐ only.
+Pro card winners appear in a gold "👑 OCB Pro Card Winners" card at the top of the
+Lineup page and as a 👑 line on the competitor's card.
+Emoji lanes: 🏆 class placements · ⭐ overalls · 👑 pro cards.
+
+**Consistency check before pushing an overall:** the overall winner must already be
+recorded as 1st in one of that division's classes in RESULTS. If they aren't, either
+the number is mis-keyed or the class results haven't been sent yet — ask the promoter
+to confirm before pushing; never auto-fill the missing class result.
+
 The 39 class names, in running order (use verbatim as RESULTS keys). PQ suffixes were
 removed 2026-07-15 from classes without enough athletes to qualify — this list is current:
 Men's Bodybuilding Debut · Men's Bodybuilding Novice · Men's Bodybuilding 60+ ·

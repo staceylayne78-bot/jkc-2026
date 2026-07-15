@@ -203,6 +203,16 @@
   }
   .place.p1 { color: var(--accent); }
 
+  /* Overall champions */
+  .classcard.champs { border: 2px solid var(--accent); }
+  .champs .classhead h3 { color: var(--accent); }
+  .champwho { display: flex; flex-direction: column; line-height: 1.25; }
+  .champtitle {
+    font-family: var(--font-sub); font-size: 13px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .comp ul li.crown { color: var(--accent); font-weight: 600; }
+
   /* Competitor result cards */
   .comp {
     background: var(--bg-card); border: 1px solid var(--rule); border-radius: 12px;
@@ -350,6 +360,32 @@
     return / PQ$/.test(name) ? '<span class="badge-pq">PQ</span>' : "";
   }
 
+  // OCB pro cards. In a single-class PQ division the class winner goes pro directly.
+  // In a PQ division with A/B/C height classes, class winners do NOT go pro — only the
+  // division's Overall winner does (matched from OVERALLS by "<division> Overall" title).
+  function pqDivisions() {
+    const groups = new Map();
+    CLASSES.filter(c => / PQ$/.test(c.name)).forEach(c => {
+      const base = c.name.replace(/ PQ$/, "").replace(/ [A-C]$/, "");
+      if (!groups.has(base)) groups.set(base, []);
+      groups.get(base).push(c.name);
+    });
+    return groups;
+  }
+  function proCardWins() {
+    const wins = [];
+    pqDivisions().forEach((classNames, base) => {
+      if (classNames.length === 1) {
+        const r = RESULTS[classNames[0]];
+        if (r && r.length) wins.push({ label: base, n: r[0] });
+      } else {
+        const o = OVERALLS.find(o => o.title.replace(/ Overall$/, "") === base);
+        if (o) wins.push({ label: base, n: o.n });
+      }
+    });
+    return wins;
+  }
+
   const PLACE_LABELS = ["🏆 1st", "🥈 2nd", "🥉 3rd", "4th", "5th"];
   function placeBadge(className, n) {
     const order = RESULTS[className];
@@ -377,7 +413,21 @@
       if (!d || d.cat !== cat) { d = { cat, items: [] }; divisions.push(d); }
       d.items.push({ cls, ord: i + 1 });
     });
-    const html = divisions.map(d => {
+    const pros = proCardWins();
+    let proCard = "";
+    if (pros.length) {
+      const rows = pros.map(p => {
+        const c = byNum.get(p.n);
+        return `<li><button onclick="openCompetitor(${p.n})"><span class="num">${p.n}</span>
+          <span class="champwho">${esc(c.name)}<span class="champtitle">${esc(p.label)}</span></span> 👑</button></li>`;
+      }).join("");
+      proCard = `
+        <div class="classcard champs">
+          <div class="classhead"><h3>👑 OCB Pro Card Winners</h3></div>
+          <ul class="roster">${rows}</ul>
+        </div>`;
+    }
+    const html = proCard + divisions.map(d => {
       const cards = d.items.map(({ cls, ord }) => {
         const rows = cls.nums.map(n => {
           const c = byNum.get(n);
@@ -408,6 +458,7 @@
     }).join("");
     document.getElementById("lineup").innerHTML = html;
   }
+  window.renderLineup = renderLineup;
 
   // Print (judges/staff copies) needs every accordion open.
   window.addEventListener("beforeprint", () => {
@@ -420,7 +471,12 @@
   /* ----- Find ----- */
   const q = document.getElementById("q");
   function compCard(c) {
-    const rows = classesFor(c.n).map(k => `
+    const honors =
+      proCardWins().filter(p => p.n === c.n)
+        .map(p => `<li class="crown">👑 OCB Pro Card — ${esc(p.label)}</li>`).join("") +
+      OVERALLS.filter(o => o.n === c.n)
+        .map(o => `<li class="crown">⭐ ${esc(o.title)}</li>`).join("");
+    const rows = honors + classesFor(c.n).map(k => `
       <li><span class="ord">${k.ord} / ${CLASSES.length}</span> ${displayName(k.name)} ${pqBadge(k.name)} ${placeBadge(k.name, c.n)}</li>`).join("");
     return `
       <div class="comp">
