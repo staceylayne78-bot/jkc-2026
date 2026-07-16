@@ -98,7 +98,7 @@ const CLASSES = [
   { name: "Women's Wellness Debut", nums: [63, 64] },
   { name: "Women's Wellness Novice", nums: [63, 64, 65, 66] },
   { name: "Women's Wellness 40+", nums: [65, 66] },
-  { name: "Women's Wellness Open", nums: [63, 64, 66] },
+  { name: "Women's Wellness Open", nums: [63, 64, 65, 66] },
 ];
 
 // One-line "what judges look for" per division, condensed from ocbonline.com's category pages.
