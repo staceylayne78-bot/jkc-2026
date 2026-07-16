@@ -69,6 +69,34 @@ Women's Bikini Debut · Women's Bikini Novice A · Women's Bikini Novice B ·
 Women's Bikini 40+ · Women's Bikini Open PQ · Women's Wellness Debut ·
 Women's Wellness Novice · Women's Wellness 40+ · Women's Wellness Open
 
+## Refreshing the site for a new year's show
+
+The site is rebuilt annually from the same bones. The Netlify site/URL stays the same
+(jackkingsclassic.netlify.app), which means printed QR codes stay valid year to year —
+do not create a new Netlify project or rename it without explicit direction.
+
+1. **Gather from the promoter (Stacey):** show date, venue + address, session times,
+   the competitor CSV (number, name, category, divisions — her list is authoritative,
+   including any intentionally skipped numbers), the class lineup in running order with
+   PQ markings, and sponsor/vendor changes with logo files.
+2. **Ask which PQ classes actually award pro cards** — divisions without enough
+   athletes lose their PQ suffix (this happened in 2026). Curate before launch.
+3. **Update `data.js`:** COMPETITORS, CLASSES, EVENT, SPONSORS. Reset `RESULTS = {}`
+   and `OVERALLS = []`.
+4. **Validate, don't eyeball:** write a small script that parses the promoter's
+   provided list and diffs it against data.js (count, every number→name→category,
+   every class's numbers, no invented entries). All checks must pass before deploy.
+5. **Update year strings** in index.html (title, h1, meta description), CLAUDE.md
+   (class-name list in this file), and `poster/poster.html`; re-render the poster:
+   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new
+   --no-pdf-header-footer --print-to-pdf=poster/jkc-<year>-poster.pdf
+   "file://<repo>/poster/poster.html"`
+6. **New logos** go in `assets/logos/`, web-optimized copies in `assets/logos/web/`
+   (resize ≤600px with sips), referenced from data.js, added to sw.js PRECACHE.
+7. **Bump `VERSION` in sw.js**, push, then verify live: search a number, open every
+   division accordion, check the sponsors/about pages, confirm the service worker
+   installs, and re-scan a printed QR code with a real phone.
+
 ## Other conventions
 
 - Any change to competitor/class data (not just results) must be re-validated against
