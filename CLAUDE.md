@@ -63,11 +63,12 @@ Men's Classic Physique Debut B · Men's Classic Physique Novice A ·
 Men's Classic Physique Novice B · Men's Classic Physique 40+ ·
 Men's Classic Physique Open A PQ · Men's Classic Physique Open B PQ ·
 Women's Physique Debut · Women's Physique Novice · Women's Physique Open ·
-Women's Figure Debut · Women's Figure Novice · Women's Figure 40+ ·
+Women's Figure Debut · Women's Figure Novice · Women's Figure 35+ ·
 Women's Figure 50+ · Women's Figure 60+ · Women's Figure Open PQ ·
 Women's Bikini Debut · Women's Bikini Novice A · Women's Bikini Novice B ·
-Women's Bikini 40+ · Women's Bikini Open PQ · Women's Wellness Debut ·
-Women's Wellness Novice · Women's Wellness 40+ · Women's Wellness Open
+Women's Bikini 35+ · Women's Bikini Open PQ · Women's Wellness Debut ·
+Women's Wellness Novice · Women's Wellness 35+ · Women's Wellness Open
+(Women's masters classes are 35+; men's are 40+ — the age split differs by gender.)
 
 ## Refreshing the site for a new year's show
 
