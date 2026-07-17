@@ -1,5 +1,6 @@
 // Jack King's Classic 2026 — competitor + class data.
-// Source of truth: the promoter's CSV. Number 46 intentionally withdrew — do not fill the gap.
+// Source of truth: the promoter's list. Number 46 (originally a withdrawal) was
+// reassigned to Riccardo Scichilone on 2026-07-15 when Ricardo Hidalgo took #33.
 const COMPETITORS = [
   { n: 11, name: "Nick Athan", cat: "Men's Bodybuilding" },
   { n: 12, name: "Jamal Wallington", cat: "Men's Bodybuilding" },
@@ -23,7 +24,7 @@ const COMPETITORS = [
   { n: 30, name: "Joseph Krause", cat: "Men's Physique" },
   { n: 31, name: "Sharodd Clayborne", cat: "Men's Physique" },
   { n: 32, name: "Wyatt Spitz", cat: "Men's Classic Physique" },
-  { n: 33, name: "Riccardo Scichilone", cat: "Men's Classic Physique" },
+  { n: 33, name: "Ricardo Hidalgo", cat: "Men's Classic Physique" },
   { n: 34, name: "Joshua Edwards", cat: "Men's Classic Physique" },
   { n: 35, name: "John Hennegan", cat: "Men's Classic Physique" },
   { n: 36, name: "Joshua Cox", cat: "Men's Classic Physique" },
@@ -36,6 +37,7 @@ const COMPETITORS = [
   { n: 43, name: "Stone Brisson", cat: "Men's Classic Physique" },
   { n: 44, name: "Ryan Kelly", cat: "Men's Classic Physique" },
   { n: 45, name: "Joseph Cook", cat: "Men's Classic Physique" },
+  { n: 46, name: "Riccardo Scichilone", cat: "Men's Classic Physique" },
   { n: 47, name: "Ally Alexander", cat: "Women's Physique" },
   { n: 48, name: "Tessica Byers", cat: "Women's Physique" },
   { n: 49, name: "Pamela Callahan", cat: "Women's Figure" },
@@ -74,12 +76,12 @@ const CLASSES = [
   { name: "Men's Physique Open A PQ", nums: [13, 16, 18, 25, 26, 29] },
   { name: "Men's Physique Open B PQ", nums: [14, 20, 21, 22, 24, 28] },
   { name: "Men's Physique Open C PQ", nums: [15, 17, 19, 23, 27, 30] },
-  { name: "Men's Classic Physique Debut A", nums: [32, 36, 41, 42] },
+  { name: "Men's Classic Physique Debut A", nums: [32, 33, 36, 41, 42] },
   { name: "Men's Classic Physique Debut B", nums: [37, 38, 43, 45] },
-  { name: "Men's Classic Physique Novice A", nums: [33, 34, 36] },
+  { name: "Men's Classic Physique Novice A", nums: [33, 34, 36, 46] },
   { name: "Men's Classic Physique Novice B", nums: [38, 42, 43] },
   { name: "Men's Classic Physique 40+", nums: [38, 39] },
-  { name: "Men's Classic Physique Open A PQ", nums: [32, 33, 34, 35, 36] },
+  { name: "Men's Classic Physique Open A PQ", nums: [32, 33, 34, 35, 36, 46] },
   { name: "Men's Classic Physique Open B PQ", nums: [38, 40, 43, 44, 45] },
   { name: "Women's Physique Debut", nums: [48] },
   { name: "Women's Physique Novice", nums: [47, 48] },
@@ -98,7 +100,7 @@ const CLASSES = [
   { name: "Women's Wellness Debut", nums: [63, 64] },
   { name: "Women's Wellness Novice", nums: [63, 64, 65, 66] },
   { name: "Women's Wellness 35+", nums: [65, 66] },
-  { name: "Women's Wellness Open", nums: [63, 64, 65, 66] },
+  { name: "Women's Wellness Open PQ", nums: [63, 64, 65, 66] },
 ];
 
 // One-line "what judges look for" per division, condensed from ocbonline.com's category pages.
