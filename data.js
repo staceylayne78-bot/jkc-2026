@@ -5,7 +5,6 @@ const COMPETITORS = [
   { n: 11, name: "Nick Athan", cat: "Men's Bodybuilding" },
   { n: 12, name: "Jamal Wallington", cat: "Men's Bodybuilding" },
   { n: 13, name: "Aaron Freeman", cat: "Men's Physique" },
-  { n: 14, name: "Tyson Merritt", cat: "Men's Physique" },
   { n: 15, name: "Victor Oyinwola", cat: "Men's Physique" },
   { n: 17, name: "Carlos Williams", cat: "Men's Physique" },
   { n: 18, name: "Kareem Lewis", cat: "Men's Physique" },
@@ -52,7 +51,8 @@ const COMPETITORS = [
   { n: 59, name: "Andrea Hutchinson", cat: "Women's Bikini" },
   { n: 60, name: "Aman Rivas", cat: "Women's Bikini" },
   { n: 61, name: "Kellianne Dempsey", cat: "Women's Bikini" },
-  { n: 62, name: "Chloe Adams", cat: "Women's Bikini" },
+  { n: 62, name: "Tyson Merritt", cat: "Men's Physique" },
+  { n: 0, name: "Chloe Adams", cat: "Women's Bikini" },
   { n: 63, name: "Emily Rollins", cat: "Women's Wellness" },
   { n: 64, name: "Margot Nazario", cat: "Women's Wellness" },
   { n: 65, name: "Jessica Toache Rubio", cat: "Women's Wellness" },
@@ -65,15 +65,15 @@ const CLASSES = [
   { name: "Men's Bodybuilding Novice", nums: [12] },
   { name: "Men's Bodybuilding 60+", nums: [11] },
   { name: "Men's Bodybuilding Open", nums: [12] },
-  { name: "Men's Physique Debut A", nums: [13, 14, 28, 29] },
+  { name: "Men's Physique Debut A", nums: [13, 28, 29, 62] },
   { name: "Men's Physique Debut B", nums: [19, 20, 21, 30] },
-  { name: "Men's Physique Novice A", nums: [14, 26, 28, 29] },
+  { name: "Men's Physique Novice A", nums: [26, 28, 29, 62] },
   { name: "Men's Physique Novice B", nums: [21, 22, 24, 31] },
   { name: "Men's Physique Novice C", nums: [17, 19, 27, 30] },
   { name: "Men's Physique 40+ PQ", nums: [18, 21, 23] },
   { name: "Men's Physique 50+", nums: [23] },
   { name: "Men's Physique Open A PQ", nums: [13, 18, 25, 26, 29] },
-  { name: "Men's Physique Open B PQ", nums: [14, 20, 21, 22, 24, 28] },
+  { name: "Men's Physique Open B PQ", nums: [20, 21, 22, 24, 28, 62] },
   { name: "Men's Physique Open C PQ", nums: [15, 17, 19, 23, 27, 30] },
   { name: "Men's Classic Physique Debut A", nums: [32, 33, 36, 41, 42] },
   { name: "Men's Classic Physique Debut B", nums: [37, 38, 43, 45] },
@@ -99,7 +99,7 @@ const CLASSES = [
   { name: "Women's Bikini Novice A", nums: [56, 57, 60, 61] },
   { name: "Women's Bikini Novice B", nums: [54, 55, 58, 59] },
   { name: "Women's Bikini 35+", nums: [54, 60] },
-  { name: "Women's Bikini Open PQ", nums: [55, 56, 57, 58, 59, 61, 62] },
+  { name: "Women's Bikini Open PQ", nums: [0, 55, 56, 57, 58, 59, 61] },
 ];
 
 // One-line "what judges look for" per division, condensed from ocbonline.com's category pages.
@@ -141,11 +141,23 @@ const RESULTS = {
   "Men's Bodybuilding Novice": [12],
   "Men's Bodybuilding 60+": [11],
   "Men's Bodybuilding Open": [12],
-  "Men's Physique Debut A": [14],
+  "Men's Physique Debut A": [62],
   "Men's Physique Debut B": [19],
-  "Men's Physique Novice A": [14],
+  "Men's Physique Novice A": [62],
   "Men's Physique Novice B": [22],
   "Men's Physique Novice C": [17],
+  "Men's Physique 40+ PQ": [23],
+  "Men's Physique 50+": [23],
+  "Men's Physique Open A PQ": [25],
+  "Men's Physique Open B PQ": [62],
+  "Men's Physique Open C PQ": [17],
+  "Men's Classic Physique Debut A": [42],
+  "Men's Classic Physique Debut B": [38],
+  "Men's Classic Physique Novice A": [34],
+  "Men's Classic Physique Novice B": [42],
+  "Men's Classic Physique 40+": [38],
+  "Men's Classic Physique Open A PQ": [35],
+  "Men's Classic Physique Open B PQ": [40],
 };
 
 // Overall titles, decided after class judging from the class winners. Any title
@@ -154,6 +166,10 @@ const RESULTS = {
 const OVERALLS = [
   { title: "Men's Physique Debut Overall", n: 19 },
   { title: "Men's Physique Novice Overall", n: 17 },
+  { title: "Men's Physique Open Overall", n: 25 },
+  { title: "Men's Classic Physique Debut Overall", n: 42 },
+  { title: "Men's Classic Physique Novice Overall", n: 34 },
+  { title: "Men's Classic Physique Open Overall", n: 35 },
 ];
 
 const EVENT = {
