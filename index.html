@@ -359,7 +359,10 @@
 
 <script src="data.js"></script>
 <script>
-  const byNum = new Map(COMPETITORS.map(c => [c.n, c]));
+  // Rosters/results reference each competitor's key: their unique `id` if present,
+  // else their stage number. Two athletes may share a displayed number (n).
+  const keyOf = c => c.id ?? c.n;
+  const byNum = new Map(COMPETITORS.map(c => [keyOf(c), c]));
   const classesFor = n => CLASSES.map((c, i) => ({ ...c, ord: i + 1 })).filter(c => c.nums.includes(n));
   const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
@@ -425,7 +428,7 @@
     if (pros.length) {
       const rows = pros.map(p => {
         const c = byNum.get(p.n);
-        return `<li><button onclick="openCompetitor(${p.n})"><span class="num">${p.n}</span>
+        return `<li><button onclick="openCompetitor(${p.n})"><span class="num">${c.n}</span>
           <span class="champwho">${esc(c.name)}<span class="champtitle">${esc(p.label)}</span></span> 👑</button></li>`;
       }).join("");
       proCard = `
@@ -438,7 +441,7 @@
     if (OVERALLS.length) {
       const rows = OVERALLS.map(o => {
         const c = byNum.get(o.n);
-        return `<li><button onclick="openCompetitor(${o.n})"><span class="num">${o.n}</span>
+        return `<li><button onclick="openCompetitor(${o.n})"><span class="num">${c.n}</span>
           <span class="champwho">${esc(c.name)}<span class="champtitle">${esc(o.title)}</span></span> ⭐</button></li>`;
       }).join("");
       overallCard = `
@@ -455,9 +458,9 @@
     }
     const html = proCard + overallCard + divisions.map(d => {
       const cards = d.items.map(({ cls, ord }) => {
-        const rows = cls.nums.map(n => {
-          const c = byNum.get(n);
-          return `<li><button onclick="openCompetitor(${n})"><span class="num">${n}</span> ${esc(c.name)} ${placeBadge(cls.name, n)}</button></li>`;
+        const rows = cls.nums.map(k => {
+          const c = byNum.get(k);
+          return `<li><button onclick="openCompetitor(${k})"><span class="num">${c.n}</span> ${esc(c.name)} ${placeBadge(cls.name, k)}</button></li>`;
         }).join("");
         return `
           <div class="classcard">
@@ -498,12 +501,12 @@
   const q = document.getElementById("q");
   function compCard(c) {
     const honors =
-      proCardWins().filter(p => p.n === c.n)
+      proCardWins().filter(p => p.n === keyOf(c))
         .map(p => `<li class="crown">👑 OCB Pro Card — ${esc(p.label)}</li>`).join("") +
-      OVERALLS.filter(o => o.n === c.n)
+      OVERALLS.filter(o => o.n === keyOf(c))
         .map(o => `<li class="crown">⭐ ${esc(o.title)}</li>`).join("");
-    const rows = honors + classesFor(c.n).map(k => `
-      <li><span class="ord">${k.ord} / ${CLASSES.length}</span> ${displayName(k.name)} ${pqBadge(k.name)} ${placeBadge(k.name, c.n)}</li>`).join("");
+    const rows = honors + classesFor(keyOf(c)).map(k => `
+      <li><span class="ord">${k.ord} / ${CLASSES.length}</span> ${displayName(k.name)} ${pqBadge(k.name)} ${placeBadge(k.name, keyOf(c))}</li>`).join("");
     return `
       <div class="comp">
         <div class="top">
@@ -532,9 +535,10 @@
   }
   q.addEventListener("input", search);
 
-  function openCompetitor(n) {
+  function openCompetitor(key) {
     show("find");
-    q.value = String(n);
+    const c = byNum.get(key);
+    q.value = String(c ? c.n : key);
     search();
     window.scrollTo(0, 0);
   }

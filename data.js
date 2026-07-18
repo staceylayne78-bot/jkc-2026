@@ -52,7 +52,9 @@ const COMPETITORS = [
   { n: 60, name: "Aman Rivas", cat: "Women's Bikini" },
   { n: 61, name: "Kellianne Dempsey", cat: "Women's Bikini" },
   { n: 62, name: "Tyson Merritt", cat: "Men's Physique" },
-  { n: 0, name: "Chloe Adams", cat: "Women's Bikini" },
+  // Chloe shares stage number 62 with Tyson Merritt (promoter's call, 2026-07-18).
+  // `id` keeps her records distinct internally; `n` is what displays and searches.
+  { id: 990, n: 62, name: "Chloe Adams", cat: "Women's Bikini" },
   { n: 63, name: "Emily Rollins", cat: "Women's Wellness" },
   { n: 64, name: "Margot Nazario", cat: "Women's Wellness" },
   { n: 65, name: "Jessica Toache Rubio", cat: "Women's Wellness" },
@@ -99,7 +101,7 @@ const CLASSES = [
   { name: "Women's Bikini Novice A", nums: [56, 57, 60, 61] },
   { name: "Women's Bikini Novice B", nums: [54, 55, 58, 59] },
   { name: "Women's Bikini 35+", nums: [54, 60] },
-  { name: "Women's Bikini Open PQ", nums: [0, 55, 56, 57, 58, 59, 61] },
+  { name: "Women's Bikini Open PQ", nums: [55, 56, 57, 58, 59, 61, 990] },
 ];
 
 // One-line "what judges look for" per division, condensed from ocbonline.com's category pages.
