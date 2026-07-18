@@ -5,6 +5,9 @@ auto-deploys every push to `main`. The event is Saturday, July 18, 2026.
 
 ## Data integrity rules (read before touching data.js)
 
+- Show-day renumbers (2026-07-18): Tyson Merritt lost his tag, reissued **#14 → #62**;
+  Chloe Adams (Bikini) holds temporary **#0** until the promoter sends her new number.
+  #14 is vacant.
 - Competitor numbers run 11–66. **#16 (Stephen Hinton) is intentionally missing** —
   scratched as a no-show on show day 2026-07-18; do not restore him. (#46 was vacant
   from a withdrawal until 2026-07-15, then reassigned to Riccardo Scichilone after
