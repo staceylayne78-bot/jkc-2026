@@ -160,6 +160,15 @@ const RESULTS = {
   "Men's Classic Physique 40+": [38],
   "Men's Classic Physique Open A PQ": [35],
   "Men's Classic Physique Open B PQ": [40],
+  "Women's Physique Debut": [48],
+  "Women's Physique Novice": [47],
+  "Women's Physique Open": [47],
+  "Women's Figure Debut": [52],
+  "Women's Figure Novice": [52],
+  "Women's Figure 35+": [49],
+  "Women's Figure 50+": [49],
+  "Women's Figure 60+": [50],
+  "Women's Figure Open PQ": [52],
 };
 
 // Overall titles, decided after class judging from the class winners. Any title
