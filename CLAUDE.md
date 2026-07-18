@@ -5,10 +5,11 @@ auto-deploys every push to `main`. The event is Saturday, July 18, 2026.
 
 ## Data integrity rules (read before touching data.js)
 
-- Competitor numbers run 11–66 with no gaps. (#46 was vacant from a withdrawal until
-  2026-07-15, when the promoter reassigned it to Riccardo Scichilone after Ricardo
-  Hidalgo took #33. Number assignments are the promoter's call — never renumber on
-  your own initiative.)
+- Competitor numbers run 11–66. **#16 (Stephen Hinton) is intentionally missing** —
+  scratched as a no-show on show day 2026-07-18; do not restore him. (#46 was vacant
+  from a withdrawal until 2026-07-15, then reassigned to Riccardo Scichilone after
+  Ricardo Hidalgo took #33.) Number assignments are the promoter's call — never
+  renumber on your own initiative.
 - Class names in `CLASSES` must stay exactly as written, including "PQ" suffixes and
   A/B/C splits. They are keys for `RESULTS` and `DIVISION_INFO`.
 - Never invent competitors, classes, or sponsors.
@@ -67,10 +68,11 @@ Men's Classic Physique Open A PQ · Men's Classic Physique Open B PQ ·
 Women's Physique Debut · Women's Physique Novice · Women's Physique Open ·
 Women's Figure Debut · Women's Figure Novice · Women's Figure 35+ ·
 Women's Figure 50+ · Women's Figure 60+ · Women's Figure Open PQ ·
-Women's Bikini Debut · Women's Bikini Novice A · Women's Bikini Novice B ·
-Women's Bikini 35+ · Women's Bikini Open PQ · Women's Wellness Debut ·
-Women's Wellness Novice · Women's Wellness 35+ · Women's Wellness Open PQ
-(Women's masters classes are 35+; men's are 40+ — the age split differs by gender.)
+Women's Wellness Debut · Women's Wellness Novice · Women's Wellness 35+ ·
+Women's Wellness Open PQ · Women's Bikini Debut · Women's Bikini Novice A ·
+Women's Bikini Novice B · Women's Bikini 35+ · Women's Bikini Open PQ
+(Women's masters classes are 35+; men's are 40+ — the age split differs by gender.
+Bikini runs last, after Wellness — reordered 2026-07-18.)
 
 ## Refreshing the site for a new year's show
 
