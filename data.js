@@ -169,6 +169,15 @@ const RESULTS = {
   "Women's Figure 50+": [49],
   "Women's Figure 60+": [50],
   "Women's Figure Open PQ": [52],
+  "Women's Wellness Debut": [64],
+  "Women's Wellness Novice": [64],
+  "Women's Wellness 35+": [66],
+  "Women's Wellness Open PQ": [64],
+  "Women's Bikini Debut": [59],
+  "Women's Bikini Novice A": [56],
+  "Women's Bikini Novice B": [59],
+  "Women's Bikini 35+": [54],
+  "Women's Bikini Open PQ": [990],
 };
 
 // Overall titles, decided after class judging from the class winners. Any title
@@ -181,6 +190,7 @@ const OVERALLS = [
   { title: "Men's Classic Physique Debut Overall", n: 42 },
   { title: "Men's Classic Physique Novice Overall", n: 34 },
   { title: "Men's Classic Physique Open Overall", n: 35 },
+  { title: "Women's Bikini Novice Overall", n: 56 },
 ];
 
 const EVENT = {
