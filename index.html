@@ -432,7 +432,20 @@
           <ul class="roster">${rows}</ul>
         </div>`;
     }
-    const html = proCard + divisions.map(d => {
+    let overallCard = "";
+    if (OVERALLS.length) {
+      const rows = OVERALLS.map(o => {
+        const c = byNum.get(o.n);
+        return `<li><button onclick="openCompetitor(${o.n})"><span class="num">${o.n}</span>
+          <span class="champwho">${esc(c.name)}<span class="champtitle">${esc(o.title)}</span></span> ⭐</button></li>`;
+      }).join("");
+      overallCard = `
+        <div class="classcard champs">
+          <div class="classhead"><h3>⭐ Overall Champions</h3></div>
+          <ul class="roster">${rows}</ul>
+        </div>`;
+    }
+    const html = proCard + overallCard + divisions.map(d => {
       const cards = d.items.map(({ cls, ord }) => {
         const rows = cls.nums.map(n => {
           const c = byNum.get(n);
