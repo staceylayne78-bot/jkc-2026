@@ -141,12 +141,19 @@ const RESULTS = {
   "Men's Bodybuilding Novice": [12],
   "Men's Bodybuilding 60+": [11],
   "Men's Bodybuilding Open": [12],
+  "Men's Physique Debut A": [14],
+  "Men's Physique Debut B": [19],
+  "Men's Physique Novice A": [14],
+  "Men's Physique Novice B": [22],
+  "Men's Physique Novice C": [17],
 };
 
 // Overall titles, decided after class judging from the class winners. Any title
 // wording works; entries appear in the Champions card in this order.
 // Example: { title: "Men's Physique Open Overall", n: 27 }
 const OVERALLS = [
+  { title: "Men's Physique Debut Overall", n: 19 },
+  { title: "Men's Physique Novice Overall", n: 17 },
 ];
 
 const EVENT = {
