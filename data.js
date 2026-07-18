@@ -137,6 +137,10 @@ const DIVISION_INFO = {
 // Day-of results. Key = exact class name, value = competitor numbers in placement
 // order (1st, 2nd, 3rd, ...). Filled in live during the show; empty until then.
 const RESULTS = {
+  "Men's Bodybuilding Debut": [12],
+  "Men's Bodybuilding Novice": [12],
+  "Men's Bodybuilding 60+": [11],
+  "Men's Bodybuilding Open": [12],
 };
 
 // Overall titles, decided after class judging from the class winners. Any title
