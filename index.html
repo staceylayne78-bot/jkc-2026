@@ -245,6 +245,11 @@
     background: var(--bg-raise); border: 1px solid var(--rule); border-radius: 10px;
     padding: 12px 14px; margin: 10px 0; font-size: 16px;
   }
+  a.callout-link {
+    display: block; color: var(--ink); text-decoration: none;
+    border-color: var(--accent);
+  }
+  a.callout-link:active { background: var(--bg-card); }
   .vendors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .vendor {
     background: var(--bg-card); border: 1px solid var(--rule); border-radius: 12px;
@@ -532,7 +537,7 @@
         <h3>${esc(t.name)}</h3>
         <p>${esc(t.sub)}</p>
       </div>
-      <div class="callout">🎉 ${esc(EVENT.launch)}</div>
+      <a class="callout callout-link" href="${EVENT.launchUrl}" target="_blank" rel="noopener">🚀 ${esc(EVENT.launch)} →</a>
       <div class="callout">🎯 ${esc(EVENT.cornhole)}</div>
       <div class="callout">🚚 ${esc(EVENT.foodTruck)}</div>
       <h2 class="cat">Vendors</h2>
